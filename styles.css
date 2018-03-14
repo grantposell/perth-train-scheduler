@@ -1,0 +1,21 @@
+body{
+    background-image: url("./mooning.png");
+}
+.jumbotron{
+    background-image: url("./mooning.png");
+    margin-bottom: 0;
+}
+div.container{
+    font-family: 'Rozha One', serif;
+    text-align: center;
+}
+div.jumbotron.jumbotron-fluid:not(:first-child) .container{
+    text-align: left;
+    border: 5px solid black;
+    padding: 10px;
+}
+table{
+    border: 1px solid black;
+    text-align: center;
+    width: 69rem;
+}

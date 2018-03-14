@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Perth City Train Station</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Rozha+One" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Perth City Train Station</h1>
+            <p class="lead">Below are the trains and their train times.</p>
+        </div>
+    </div>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Train Name</th>
+                        <th>Destination</th>
+                        <th>Frequency</th>
+                        <th>Next Arrival</th>
+                        <th>Minutes Away</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputTrain1">Train Name</label>
+                        <input type="text" class="form-control" id="add-name" aria-describedby="employeeHelp" placeholder="Fremantle Line">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputDestination1">Destination</label>
+                        <input type="text" class="form-control" id="add-destination" placeholder="Subiaco">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFirstTrain1">First Train Time (HH:mm - military time)</label>
+                        <input type="text" class="form-control" id="add-firstTime" placeholder="18:27">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputTime1">Frequency (minutes)</label>
+                        <input type="text" class="form-control" id="add-frequency" placeholder="30">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="add-train">Submit</button>
+                </form>
+            </div>
+        </div>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <!-- Moment JS -->
+        <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+        <!--jQuery -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+        <!-- Firebase -->
+        <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+        <!-- External JavaScript File -->
+        <script src="./logic.js"></script>
+</body>
+
+</html>
