@@ -1,8 +1,8 @@
 body{
-    background-image: url("./mooning.png");
+    background-color: white;
 }
 .jumbotron{
-    background-image: url("./mooning.png");
+    background-color: white;
     margin-bottom: 0;
 }
 div.container{
