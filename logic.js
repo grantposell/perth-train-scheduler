@@ -24,9 +24,15 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 
+var myVar = setInterval(myTimer, 1000);
+
+function myTimer() {
+    var d = new Date();
+    document.getElementById("mainclock").innerHTML = d.toLocaleTimeString();
+};
 
 // Capture Button Click
-$("#add-train").on("click", function(event) {
+$("#add-train").on("click", function (event) {
     event.preventDefault();
 
 
@@ -38,13 +44,42 @@ $("#add-train").on("click", function(event) {
     // Code for the push
     database.ref().push({
 
-      trainName: trainName,
-      destination: destination,
-      firstTime: firstTime,
-      frequency: frequency,
-      dateAdded: firebase.database.ServerValue.TIMESTAMP
+        trainName: trainName,
+        destination: destination,
+        firstTime: firstTime,
+        frequency: frequency,
+        dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
 });
+// Firebase watcher + initial loader HINT: This code behaves similarly to .on("value")
+database.ref().on("child_added", function (childSnapshot) {
+
+    // Log everything that's coming out of snapshot
+    console.log(childSnapshot.val().trainName);
+    console.log(childSnapshot.val().destination);
+    console.log(childSnapshot.val().firstTime);
+    console.log(childSnapshot.val().frequency);
+
+    // full list of items to the well
+    // $("<tbody>").append("<div class='well'><span class='member-name'> " + childSnapshot.val().name +
+    //     " </span><span class='member-email'> " + childSnapshot.val().email +
+    //     " </span><span class='member-age'> " + childSnapshot.val().age +
+    //     " </span><span class='member-comment'> " + childSnapshot.val().comment + " </span></div>");
+
+    // Handle the errors
+}, function (errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+});
+
+database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function (snapshot) {
+
+    // Change the HTML to reflect
+    $("#name-display").text(snapshot.val().name);
+    $("#email-display").text(snapshot.val().email);
+    $("#age-display").text(snapshot.val().age);
+    $("#comment-display").text(snapshot.val().comment);
+});
+
 
 // First Time (pushed back 1 year to make sure it comes before current time)
 var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
